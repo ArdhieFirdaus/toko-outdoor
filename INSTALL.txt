@@ -1,0 +1,193 @@
+================================================================================
+PANDUAN INSTALASI - SISTEM INFORMASI TOKO OUTDOOR
+================================================================================
+
+STEP 1: PERSIAPAN
+================================================================================
+1. Pastikan XAMPP sudah terinstal dan berjalan (Apache + MySQL)
+2. Folder project sudah ada di: C:\xampp\htdocs\toko-outdoor\
+
+STEP 2: IMPORT DATABASE
+================================================================================
+1. Buka phpMyAdmin di browser: http://localhost/phpmyadmin/
+2. Klik "Import" di menu atas
+3. Pilih file: Database/database.sql
+4. Klik tombol "Import"
+
+ATAU alternatif melalui CMD:
+1. Buka Command Prompt (CMD)
+2. Navigasi ke folder: cd C:\xampp\htdocs\toko-outdoor\Database\
+3. Run: mysql -u root -p < database.sql
+4. Jika ada password MySQL, masukkan password
+5. Tunggu sampai selesai
+
+STEP 3: KONFIGURASI DATABASE (Opsional)
+================================================================================
+Jika database Anda memiliki username/password berbeda:
+
+1. Buka file: Config/koneksi.php
+2. Edit baris berikut sesuai konfigurasi Anda:
+   
+   define('DB_HOST', 'localhost');    // Host database
+   define('DB_USER', 'root');         // Username
+   define('DB_PASS', '');             // Password (kosong jika tidak ada)
+   define('DB_NAME', 'toko_outdoor'); // Nama database
+
+STEP 4: VERIFIKASI INSTALASI
+================================================================================
+1. Buka browser dan akses: http://localhost/toko-outdoor/
+2. Sistem akan auto-redirect ke login page
+3. Coba login dengan akun demo:
+   - Username: admin
+   - Password: admin123
+
+STEP 5: MEMBUAT BACKUP DATABASE
+================================================================================
+1. Buka phpMyAdmin
+2. Pilih database "toko_outdoor"
+3. Klik menu "Export"
+4. Klik tombol "Go"
+5. File SQL akan di-download
+
+================================================================================
+DEMO LOGIN CREDENTIALS
+================================================================================
+
+ADMIN (Akses Penuh)
+- Username: admin
+- Password: admin123
+- Akses: User Management, Produk, Transaksi, Dashboard
+
+KASIR (Manajemen Penjualan)
+- Username: kasir1
+- Password: kasir123
+- Akses: Produk, Transaksi, Dashboard
+
+OWNER (Laporan)
+- Username: owner
+- Password: owner123
+- Akses: Laporan Penjualan (Read-only)
+
+================================================================================
+FITUR UTAMA
+================================================================================
+
+1. USER MANAGEMENT (Admin Only)
+   - Tambah user dengan validasi
+   - Edit profile & role
+   - Hapus user
+   - Lihat semua user
+
+2. PRODUCT MANAGEMENT (Admin & Kasir)
+   - Tambah produk dengan kategori, harga, stok
+   - Edit data produk
+   - Hapus produk (admin only)
+   - Lihat stok realtime
+
+3. TRANSACTION MANAGEMENT (Kasir Only)
+   - Buat transaksi dengan multiple items
+   - Lihat detail transaksi
+   - Hapus transaksi & rollback stok
+   - Kalkulasi otomatis total harga
+
+4. LAPORAN PENJUALAN (Owner Only)
+   - Dashboard dengan statistik
+   - Chart penjualan bulanan
+   - Top 10 produk terlaris
+   - Statistik pengguna
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR: Gagal terkoneksi ke database
+SOLUSI:
+- Pastikan MySQL sudah berjalan di XAMPP Control Panel
+- Cek username/password di Config/koneksi.php
+- Import ulang file database.sql
+
+ERROR: Session expire saat login
+SOLUSI:
+- Clear cookies di browser (Ctrl+Shift+Delete)
+- Close dan re-open browser
+- Coba login kembali
+
+ERROR: Stok tidak berkurang
+SOLUSI:
+- Pastikan quantity valid di form transaksi
+- Cek database melalui phpMyAdmin
+- Restart XAMPP jika perlu
+
+ERROR: File tidak ditemukan
+SOLUSI:
+- Pastikan struktur folder sesuai dengan dokumentasi
+- Periksa nama file (case-sensitive di Linux)
+
+================================================================================
+STRUKTUR FOLDER
+================================================================================
+
+toko-outdoor/
+├── index.php
+├── login.php
+├── logout.php
+├── dashboard.php
+├── user_management.php
+├── produk_management.php
+├── transaksi_management.php
+├── laporan.php
+├── helper.php
+├── README.md
+├── INSTALL.txt
+│
+├── Config/
+│   └── koneksi.php
+│
+├── Database/
+│   └── database.sql
+│
+├── includes/
+│   └── sidebar.php
+│
+├── api/
+│   ├── get_user.php
+│   ├── get_produk.php
+│   └── get_transaksi.php
+│
+└── assets/
+    ├── css/
+    │   └── style.css
+    └── js/
+
+================================================================================
+CATATAN PENTING
+================================================================================
+
+1. Semua password di-hash menggunakan SHA256
+2. Database menggunakan InnoDB dengan Foreign Key constraint
+3. Stok otomatis berkurang saat transaksi dan naik saat transaksi dihapus
+4. Sistem menggunakan session untuk autentikasi
+5. Siap untuk production dengan minor adjustment jika diperlukan
+
+================================================================================
+NEXT STEPS (DEVELOPMENT)
+================================================================================
+
+1. Tambahkan email notification untuk transaksi
+2. Implement customer database untuk pelacakan
+3. Add print receipt feature
+4. Integrate dengan payment gateway
+5. Mobile app version
+
+================================================================================
+SUPPORT & CONTACT
+================================================================================
+
+Untuk bantuan lebih lanjut, silahkan hubungi developer.
+
+Terima kasih telah menggunakan Sistem Informasi Toko Outdoor!
+
+================================================================================
+Update: December 3, 2025
+Version: 1.0 Production Ready
+================================================================================

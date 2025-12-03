@@ -1,0 +1,303 @@
+================================================================================
+⚡ QUICK START GUIDE - SISTEM INFORMASI TOKO OUTDOOR
+================================================================================
+
+LANGKAH-LANGKAH CEPAT (5 MENIT)
+================================================================================
+
+LANGKAH 1: PASTIKAN XAMPP BERJALAN
+─────────────────────────────────────────────────────────────────────────────
+[ ] Buka XAMPP Control Panel
+[ ] Klik START untuk Apache
+[ ] Klik START untuk MySQL
+[ ] Tunggu hingga berwarna hijau ✅
+
+LANGKAH 2: IMPORT DATABASE
+─────────────────────────────────────────────────────────────────────────────
+[ ] Buka browser: http://localhost/phpmyadmin/
+[ ] Pilih menu "Import"
+[ ] Klik "Choose File" dan pilih: Database/database.sql
+[ ] Klik tombol "Import"
+[ ] Tunggu proses selesai ✅
+
+LANGKAH 3: BUKA APLIKASI
+─────────────────────────────────────────────────────────────────────────────
+[ ] Buka browser: http://localhost/toko-outdoor/
+[ ] Atau langsung: http://localhost/toko-outdoor/login.php
+[ ] Sistem akan terbuka di halaman login ✅
+
+LANGKAH 4: LOGIN
+─────────────────────────────────────────────────────────────────────────────
+Pilih salah satu akun untuk testing:
+
+┌──────────────────────────────────────────┐
+│ ADMIN (Akses Penuh)                      │
+├──────────────────────────────────────────┤
+│ Username: admin                          │
+│ Password: admin123                       │
+│ Akses: Semua fitur                       │
+└──────────────────────────────────────────┘
+
+┌──────────────────────────────────────────┐
+│ KASIR (Manajemen Penjualan)              │
+├──────────────────────────────────────────┤
+│ Username: kasir                          │
+│ Password: kasir123                       │
+│ Akses: Produk & Transaksi                │
+└──────────────────────────────────────────┘
+
+┌──────────────────────────────────────────┐
+│ OWNER (Laporan)                          │
+├──────────────────────────────────────────┤
+│ Username: owner                          │
+│ Password: owner123                       │
+│ Akses: Laporan (read-only)               │
+└──────────────────────────────────────────┘
+
+LANGKAH 5: TESTING FITUR
+─────────────────────────────────────────────────────────────────────────────
+
+Jika login sebagai ADMIN:
+[ ] Buka "Manajemen User" → Lihat semua user
+[ ] Klik "+ Tambah User" → Buat user baru
+[ ] Buka "Manajemen Produk" → Lihat semua produk
+[ ] Klik "+ Tambah Produk" → Buat produk baru
+
+Jika login sebagai KASIR:
+[ ] Buka "Manajemen Produk" → Lihat produk
+[ ] Buka "Transaksi" → Klik "+ Buat Transaksi"
+[ ] Pilih produk → Masukkan jumlah → Klik "Simpan Transaksi"
+[ ] Lihat stok produk berkurang ✅
+
+Jika login sebagai OWNER:
+[ ] Buka "Laporan" → Lihat dashboard penjualan
+[ ] Lihat chart penjualan bulanan
+[ ] Lihat top produk terlaris
+
+================================================================================
+MENU-MENU UTAMA
+================================================================================
+
+Tergantung role Anda, berikut menu yang tersedia:
+
+ADMIN
+├── 📊 Dashboard
+├── 👥 Manajemen User
+├── 📦 Manajemen Produk
+└── 💳 Transaksi
+
+KASIR
+├── 📊 Dashboard
+├── 📦 Manajemen Produk (View only)
+└── 💳 Transaksi
+
+OWNER
+├── 📊 Dashboard
+└── 📈 Laporan
+
+================================================================================
+FITUR-FITUR UTAMA
+================================================================================
+
+1️⃣ USER MANAGEMENT (Admin Only)
+   • Tambah user baru dengan validasi
+   • Edit user (nama, email, no telp, role)
+   • Hapus user
+   • View semua user dengan role
+
+2️⃣ PRODUCT MANAGEMENT
+   • Tambah produk (nama, kategori, harga, stok)
+   • Edit produk
+   • Hapus produk
+   • Lihat stok real-time (Green/Yellow/Red indicator)
+
+3️⃣ TRANSACTION MANAGEMENT
+   • Buat transaksi dengan multiple items
+   • View detail transaksi
+   • Hapus transaksi (stok akan dikembalikan)
+   • Auto-calculate total harga
+
+4️⃣ LAPORAN PENJUALAN
+   • Dashboard dengan statistik
+   • Chart penjualan bulanan
+   • Top 10 produk terlaris
+   • User statistics
+
+================================================================================
+TIPS & TRIK
+================================================================================
+
+💡 TIP 1: Membuat Transaksi
+   1. Klik "+ Buat Transaksi"
+   2. Pilih produk dari dropdown
+   3. Masukkan jumlah
+   4. Klik "+ Tambah Item" untuk produk lain
+   5. Total harga otomatis dihitung
+   6. Klik "Simpan Transaksi"
+
+💡 TIP 2: Mengedit User/Produk
+   1. Klik tombol "Edit" di tabel
+   2. Form akan terbuka di modal
+   3. Ubah data yang diinginkan
+   4. Klik "Simpan Perubahan"
+
+💡 TIP 3: Menghapus Data
+   1. Klik tombol "Hapus"
+   2. Konfirmasi penghapusan
+   3. Klik "Hapus" di modal konfirmasi
+   4. Data akan terhapus dari database
+
+💡 TIP 4: Logout
+   1. Lihat sidebar di kiri
+   2. Klik tombol "🚪 Logout" di bawah
+   3. Session akan dihapus
+   4. Redirect ke login page
+
+💡 TIP 5: Mobile Friendly
+   1. Buka dari tablet/smartphone
+   2. Desain responsive otomatis menyesuaikan
+   3. Menu hamburger akan muncul
+   4. Semua fungsi tetap berjalan normal
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+❌ MASALAH: Tidak bisa login
+   ✅ SOLUSI:
+      1. Cek username & password sesuai (admin/admin123)
+      2. Pastikan database sudah di-import
+      3. Clear cookies browser (Ctrl+Shift+Delete)
+      4. Buka file: test_connection.php untuk debug
+
+❌ MASALAH: Error "Gagal terkoneksi ke database"
+   ✅ SOLUSI:
+      1. Pastikan MySQL sudah running di XAMPP
+      2. Cek file: Config/koneksi.php
+      3. Jalankan test_connection.php
+      4. Pastikan database bernama "toko_outdoor" ada
+
+❌ MASALAH: CSS tidak load / tampilan berantakan
+   ✅ SOLUSI:
+      1. Refresh browser: Ctrl+F5 (hard refresh)
+      2. Cek file: assets/css/style.css ada
+      3. Buka browser console (F12) cek error
+      4. Pastikan folder assets ada
+
+❌ MASALAH: Stok tidak berkurang saat transaksi
+   ✅ SOLUSI:
+      1. Cek apakah transaksi berhasil dibuat
+      2. Login sebagai admin → lihat database
+      3. Pastikan quantity input valid (> 0)
+      4. Refresh halaman (F5)
+
+❌ MASALAH: Session expired
+   ✅ SOLUSI:
+      1. Clear cookies browser
+      2. Tutup browser sepenuhnya
+      3. Buka browser baru
+      4. Login kembali
+
+================================================================================
+FILE DOKUMENTASI
+================================================================================
+
+Untuk informasi lebih detail, baca file dokumentasi:
+
+📖 README.md
+   • Fitur lengkap aplikasi
+   • Database schema
+   • Security features
+   • Teknologi yang digunakan
+
+📖 INSTALL.txt
+   • Panduan instalasi lengkap
+   • Troubleshooting detail
+   • Database import steps
+
+📖 CHECKLIST.txt
+   • Verifikasi instalasi
+   • Testing checklist
+   • Feature verification
+
+📖 SUMMARY.txt
+   • Ringkasan project
+   • File locations
+   • Future enhancements
+
+================================================================================
+DATABASE TEST
+================================================================================
+
+Untuk memverifikasi database berfungsi:
+
+1. Buka: http://localhost/toko-outdoor/test_connection.php
+2. Lihat hasil test:
+   ✅ Database connection status
+   ✅ Database information
+   ✅ Tables existence
+   ✅ Data count
+   ✅ User login test
+
+Jika semua hijau ✅ maka database siap digunakan.
+
+================================================================================
+KONTAK & SUPPORT
+================================================================================
+
+Untuk bantuan lebih lanjut:
+
+1. Baca dokumentasi di README.md
+2. Check INSTALL.txt untuk setup
+3. Jalankan test_connection.php
+4. Periksa error.log di root folder
+5. Hubungi developer
+
+================================================================================
+TIPS KEAMANAN
+================================================================================
+
+🔒 SECURITY BEST PRACTICES
+
+1. Change Default Password
+   - Jangan gunakan password demo (admin123, kasir123)
+   - Ganti dengan password yang kuat
+
+2. Database Access
+   - Limit database access hanya dari localhost
+   - Update MySQL password jika deploy
+   - Backup database secara regular
+
+3. Production Deployment
+   - Disable error_reporting
+   - Implement HTTPS
+   - Use environment variables
+   - Regular security updates
+
+4. User Management
+   - Audit user access regularly
+   - Remove unused accounts
+   - Implement 2FA (future)
+
+================================================================================
+CONTACT & SUPPORT
+================================================================================
+
+Versi: 1.0
+Created: December 3, 2025
+Status: Production Ready ✅
+
+Technical Support: Hubungi developer
+For Issues: Check error.log atau test_connection.php
+
+================================================================================
+TERIMA KASIH! 🙏
+================================================================================
+
+Selamat menggunakan Sistem Informasi Toko Outdoor!
+
+Semoga sistem ini membantu mengelola bisnis toko outdoor Anda dengan baik.
+
+Jika ada feedback atau saran, jangan ragu untuk hubungi developer.
+
+================================================================================
